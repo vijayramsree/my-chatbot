@@ -18,7 +18,7 @@ export const Message = ({ message }: Props) => {
       <div className="inline-block max-w-[70%]">
         <div
           className={cn(
-            "mb-1 ml-1 uppercase text-sm text-stone-200 font-semibold flex flex-col",
+            "mb-1 ml-1 uppercase text-sm text-stone-800 font-semibold flex flex-col",
             role === "assistant" ? "" : "items-end",
           )}
         >

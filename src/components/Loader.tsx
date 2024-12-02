@@ -7,7 +7,7 @@ export const Loader = () => {
   return (
     <div
       className={cn(
-        "absolute bg-stone-900 z-10 h-full w-full items-center justify-center",
+        "absolute bg-white opacity-70 z-10 h-full w-full items-center justify-center",
         isLoading ? "flex" : "hidden",
       )}
       role="status"

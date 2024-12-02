@@ -30,11 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(`${geistSans.variable} ${geistMono.variable} antialiased`, "w-[100vw] h-[100vh] relative dark bg-slate-900, bg-stone-900")}
+        className={cn(`${geistSans.variable} ${geistMono.variable} antialiased`, "w-[100vw] h-[100vh] relative light")}
       >
          <Theme className="h-full w-full">
             <LoadingProvider>
-              <div className="h-full max-h-screen flex flex-col p-12">
+              <div className="h-full max-h-screen flex flex-col p-8">
                 <div className="flex-grow overflow-y-auto">{children}</div>
               </div>
             </LoadingProvider>

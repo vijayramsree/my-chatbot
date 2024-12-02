@@ -8,6 +8,7 @@ import { RiArrowRightLine } from "react-icons/ri";
 import { HiDocumentText } from "react-icons/hi2";
 import { useDropzone } from 'react-dropzone';
 import { Button, Callout, Heading, Text } from "@radix-ui/themes";
+import cn from "classnames";
 
 export default function UploadPage() {
   const { setIsLoading } = useLoading();
@@ -46,7 +47,7 @@ export default function UploadPage() {
   };
 
   return (
-    <main className="flex h-full flex-col items-center justify-between p-6 sm:p-12 md:p-24 bg-stone-900">
+    <main className="flex h-full flex-col items-center justify-between p-6 sm:p-12 md:p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
         <div className="m-auto relative">
             <Loader />
@@ -57,15 +58,17 @@ export default function UploadPage() {
                 </Callout.Root>
                 )}
             <Heading as="h1" size="8" mb="4">
-                Upload PDF
+                <img data-testid="NM" src="https://www.northwesternmutual.com/template/assets/3.8.17/images/logos/logo-horizontal-navy.svg" alt="NM" />
             </Heading>
             <Text as="p" mb="4">
                 Upload a PDF to start the chat conversation with your file.
             </Text>
             <div
                 {...getRootProps()}
-               className="flex flex-col items-center justify-center w-full h-64 sm:h-80 border-2 border-dashed border-stone-700 bg-stone-800 rounded-lg"
-                >
+                className={cn(
+                    "flex flex-col items-center justify-center w-full h-64 sm:h-80 border-2 border-dashed border-stone-700 rounded-lg",
+                    file ? "bg-blue-200" : "bg-gray-200"
+                  )}>
                 <input {...getInputProps()} role="fileInput" />
                 <HiDocumentText className="text-5xl" />
                 <Text as="p" mb="4" className="text-sm sm:text-base">

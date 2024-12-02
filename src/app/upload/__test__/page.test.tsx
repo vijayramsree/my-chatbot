@@ -45,7 +45,7 @@ jest.mock('@/app/providers/LoadingProvider', () => ({
   
     it('renders without errors', () => {
       render(<UploadPage />);
-      expect(screen.getByText(/Upload PDF/i)).toBeInTheDocument();
+      expect(screen.getByTestId(/NM/i)).toBeInTheDocument();
       expect(screen.getByText(/Drag and drop a file, or click here to browse/i)).toBeInTheDocument();
     });
   });

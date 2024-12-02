@@ -102,7 +102,7 @@ describe("ChatPage Component", () => {
   it("renders the page title and navigation elements", () => {
     render(<ChatPage />);
 
-    expect(screen.getByText("Chat with your PDF")).toBeInTheDocument();
+    expect(screen.getByText("Chat Bot")).toBeInTheDocument();
     expect(screen.getByText("Upload a different file")).toBeInTheDocument();
     expect(screen.getByTestId("model-selector")).toBeInTheDocument();
   });

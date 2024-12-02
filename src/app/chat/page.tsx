@@ -36,7 +36,7 @@ export default function ChatPage() {
 
   return (
     <main className="h-full overflow-hidden">
-      <div className="h-full flex-col rounded-lg shadow-lg flex bg-neutral-100 bg-opacity-10 ">
+      <div className="h-full flex-col rounded-lg shadow-lg flex bg-gray-900 bg-opacity-10 ">
         <div className="grid grid-flow-row-dense grid-cols-12 gap-4 h-36 md:h-14 lg:h-14 items-center justify-center ">
             <div className="col-span-12 sm:col-span-2 pl-4 pt-1">
               <Button
@@ -48,14 +48,14 @@ export default function ChatPage() {
               </Button>
           </div>
           <div className="col-span-12 sm:col-span-8 text-center">
-            <Heading size="3" className="text-lg sm:text-xl md:text-2xl">Chat with your PDF</Heading>
+            <Heading size="3" className="text-lg sm:text-xl md:text-2xl">Chat Bot</Heading>
           </div>
           <div className="col-span-12 sm:col-span-2 flex justify-end pr-4">
             <ModelSelector />
           </div>
         </div>
         <div className="flex-1 h-full overflow-y-auto" ref={messagesEndRef}>
-          <div className="flex flex-col min-h-full justify-end bg-neutral-200 bg-opacity-10">
+          <div className="flex flex-col min-h-full justify-end bg-blue-500 bg-opacity-10">
             {messages.map((m, index) => (
               <Message key={index} message={m} />
             ))}
