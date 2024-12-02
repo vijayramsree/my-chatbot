@@ -10,6 +10,7 @@ export const Loader = () => {
         "absolute bg-stone-900 z-10 h-full w-full items-center justify-center",
         isLoading ? "flex" : "hidden",
       )}
+      role="status"
     >
       <div className={cn("flex items-center", isLoading && "animate-spin")}>
         <svg

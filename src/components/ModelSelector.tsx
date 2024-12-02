@@ -11,7 +11,7 @@ export default function ModelSelector() {
   };
 
   return (
-    <div className='flex row-auto'>
+    <div data-testid="model-selector" className='flex row-auto'>
         <div className='flex justify-center items-center'>
             <Text as="p" mr="2">Model</Text>
         </div>

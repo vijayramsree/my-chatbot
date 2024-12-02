@@ -28,18 +28,21 @@ export default function UploadPage() {
     setError(undefined);
     setIsLoading(true);
 
-    const response = await uploadFile(file);
+    try {
+      const response = await uploadFile(file);
+      const json = await response.json();
 
-    const json = await response.json();
+      if (!response.ok) {
+        setError(json.message);
+        setIsLoading(false);
+        return;
+      }
 
-
-    if (!response.ok) {
-      setError(json.message);
-      return;
+      window.location.href = `/chat/`;
+    } catch (err) {
+      setError("Upload failed");
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
-    window.location.href = `/chat/`;
   };
 
   return (
@@ -63,7 +66,7 @@ export default function UploadPage() {
                 {...getRootProps()}
                className="flex flex-col items-center justify-center w-full h-64 sm:h-80 border-2 border-dashed border-stone-700 bg-stone-800 rounded-lg"
                 >
-                <input {...getInputProps()} />
+                <input {...getInputProps()} role="fileInput" />
                 <HiDocumentText className="text-5xl" />
                 <Text as="p" mb="4" className="text-sm sm:text-base">
                     {!file

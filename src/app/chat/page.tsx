@@ -5,7 +5,7 @@ import { PiCaretLeftLight, PiArrowFatLinesRightFill, PiChatDots } from "react-ic
 import { Button, Heading, IconButton, TextField } from "@radix-ui/themes";
 import { useChat } from "ai/react";
 import { useEffect, useRef } from "react";
-import { useLoading } from "../providers/LoadingProvider";
+import { useLoading } from '@/app/providers/LoadingProvider';
 import ModelSelector from "@/components/ModelSelector";
 import TempSlider from "@/components/TempSlider";
 
@@ -77,8 +77,10 @@ export default function ChatPage() {
                 />
                 <div>
                   <IconButton
+                    role="button"
                     type="submit"
                     size="3"
+                    name="send"
                     variant="solid"
                     style={{ borderRadius: 0, borderBottomRightRadius: 5 }}
                   >
