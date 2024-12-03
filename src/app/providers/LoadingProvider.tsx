@@ -1,3 +1,6 @@
+// Shared Context Component: Provides a centralized context for the entire application.
+// Default Values: Includes default settings such as Model: gpt-4o and Temperature: 0.5.
+
 "use client";
 
 import { createContext, useContext, useState } from "react";

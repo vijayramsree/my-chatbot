@@ -1,3 +1,7 @@
+// Layout component that configures meta details for SEO and applies local fonts across the entire application.
+// Radix UI Theme applied throughout the entire application.
+// Loading provider context shared across the app to manage states for loading, model selection, and temperature.
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";

@@ -1,67 +1,113 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { LoadingProvider, useLoading } from '../LoadingProvider';
-
-const TestComponent = () => {
-  const { isLoading, setIsLoading, temperatureValue, setTemperatureValue, selectedModel, setSelectedModel } = useLoading();
-
-  return (
-    <div>
-      <div>
-        <span>Loading: {isLoading ? 'True' : 'False'}</span>
-        <button onClick={() => setIsLoading(!isLoading)}>Toggle Loading</button>
-      </div>
-      <div>
-        <span>Temperature: {temperatureValue}</span>
-        <button onClick={() => setTemperatureValue(0.8)}>Set Temperature to 0.8</button>
-      </div>
-      <div>
-        <span>Selected Model: {selectedModel}</span>
-        <button onClick={() => setSelectedModel('gpt-4o-mini')}>Set Model to gpt-4o-mini</button>
-      </div>
-    </div>
-  );
-};
+import { render, screen, act, renderHook } from '@testing-library/react';
+import { useLoading, LoadingProvider } from '../LoadingProvider';
 
 describe('LoadingProvider', () => {
-  it('provides and updates isLoading state', () => {
+  // Test if Provider renders children
+  it('renders children correctly', () => {
     render(
       <LoadingProvider>
-        <TestComponent />
+        <div data-testid="child">Test Child</div>
       </LoadingProvider>
     );
-
-    expect(screen.getByText('Loading: False')).toBeInTheDocument();
-
-    fireEvent.click(screen.getByText('Toggle Loading'));
-
-    expect(screen.getByText('Loading: True')).toBeInTheDocument();
+    
+    expect(screen.getByTestId('child')).toBeInTheDocument();
+    expect(screen.getByText('Test Child')).toBeInTheDocument();
   });
 
-  it('provides and updates temperatureValue state', () => {
-    render(
-      <LoadingProvider>
-        <TestComponent />
-      </LoadingProvider>
-    );
+  // Test useLoading hook initial values
+  it('provides correct initial values', () => {
+    const { result } = renderHook(() => useLoading(), {
+      wrapper: LoadingProvider
+    });
 
-    expect(screen.getByText('Temperature: 0.5')).toBeInTheDocument();
-
-    fireEvent.click(screen.getByText('Set Temperature to 0.8'));
-
-    expect(screen.getByText('Temperature: 0.8')).toBeInTheDocument();
+    expect(result.current.isLoading).toBe(false);
+    expect(result.current.temperatureValue).toBe(0.5);
+    expect(result.current.selectedModel).toBe('gpt-4o');
   });
 
-  it('provides and updates selectedModel state', () => {
+  // Test loading state updates
+  it('updates loading state correctly', () => {
+    const { result } = renderHook(() => useLoading(), {
+      wrapper: LoadingProvider
+    });
+
+    act(() => {
+      result.current.setIsLoading(true);
+    });
+
+    expect(result.current.isLoading).toBe(true);
+  });
+
+  // Test temperature value updates
+  it('updates temperature value correctly', () => {
+    const { result } = renderHook(() => useLoading(), {
+      wrapper: LoadingProvider
+    });
+
+    act(() => {
+      result.current.setTemperatureValue(0.8);
+    });
+
+    expect(result.current.temperatureValue).toBe(0.8);
+  });
+
+  // Test model selection updates
+  it('updates selected model correctly', () => {
+    const { result } = renderHook(() => useLoading(), {
+      wrapper: LoadingProvider
+    });
+
+    act(() => {
+      result.current.setSelectedModel('gpt-3.5-turbo');
+    });
+
+    expect(result.current.selectedModel).toBe('gpt-3.5-turbo');
+  });
+
+  // Test multiple state updates
+  it('handles multiple state updates correctly', () => {
+    const { result } = renderHook(() => useLoading(), {
+      wrapper: LoadingProvider
+    });
+
+    act(() => {
+      result.current.setIsLoading(true);
+      result.current.setTemperatureValue(0.7);
+      result.current.setSelectedModel('gpt-4');
+    });
+
+    expect(result.current.isLoading).toBe(true);
+    expect(result.current.temperatureValue).toBe(0.7);
+    expect(result.current.selectedModel).toBe('gpt-4');
+  });
+
+  // Test with a consumer component
+  it('works correctly with a consumer component', () => {
+    const TestConsumer = () => {
+      const { isLoading, setIsLoading } = useLoading();
+      return (
+        <button 
+          data-testid="toggle-button"
+          onClick={() => setIsLoading(!isLoading)}
+        >
+          {isLoading ? 'Loading' : 'Not Loading'}
+        </button>
+      );
+    };
+
     render(
       <LoadingProvider>
-        <TestComponent />
+        <TestConsumer />
       </LoadingProvider>
     );
 
-    expect(screen.getByText('Selected Model: gpt-4o')).toBeInTheDocument();
+    const button = screen.getByTestId('toggle-button');
+    expect(button).toHaveTextContent('Not Loading');
 
-    fireEvent.click(screen.getByText('Set Model to gpt-4o-mini'));
+    act(() => {
+      button.click();
+    });
 
-    expect(screen.getByText('Selected Model: gpt-4o-mini')).toBeInTheDocument();
+    expect(button).toHaveTextContent('Loading');
   });
 });

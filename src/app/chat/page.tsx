@@ -1,3 +1,9 @@
+// Chat Functionality: Utilizes useChat from ai/react for handling chat messages, inputs, and submissions and preconfigured with an initial message from the assistant.
+// Context Integration: Fetches selectedModel and temperatureValue from the useLoading context.
+// Components Included: Message, Model Selector and Temp Slider
+// Icons: Icon used by react-icons package.
+// Dynamic Scrolling: Automatically scrolls to the latest message using a ref (messagesEndRef) and useEffect.
+
 "use client";
 
 import { Message } from "@/components/Message";
@@ -54,7 +60,7 @@ export default function ChatPage() {
             <ModelSelector />
           </div>
         </div>
-        <div className="flex-1 h-full overflow-y-auto" ref={messagesEndRef}>
+        <div className="flex-1 h-full overflow-y-auto" ref={messagesEndRef} data-testid="messages-end">
           <div className="flex flex-col min-h-full justify-end bg-blue-500 bg-opacity-10">
             {messages.map((m, index) => (
               <Message key={index} message={m} />
@@ -63,7 +69,7 @@ export default function ChatPage() {
         </div>
 
         <>
-          <form onSubmit={handleSubmit} ref={form}>
+          <form onSubmit={handleSubmit} ref={form} data-testid="chat-form">
             <TextField.Root size="3" type="hidden">
               <TextField.Slot className="mx-2 rounded-bl-lg">
                 <PiChatDots height={16} width={16} />

@@ -1,3 +1,8 @@
+
+// Extracts file from FormData
+// Converts file to ArrayBuffer for processing
+// [TODO] Vector store integration pending
+
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -10,7 +15,7 @@ export async function POST(req: Request) {
 
         // Need to write a function to create vector store to the PDF File
 
-        // I would skip this step for the initial level excercise.
+        // I would skip this step for the initial level
         
         return NextResponse.json({
             message: "File Uploaded"

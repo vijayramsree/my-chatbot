@@ -1,3 +1,7 @@
+// UI Component for Model Selector
+// Redix UI Select box component used for Selection
+// UseLoading Value from context provider
+
 import { Select, Flex, Text } from "@radix-ui/themes";
 import { useLoading } from '@/app/providers/LoadingProvider';
 

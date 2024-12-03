@@ -1,3 +1,7 @@
+// Upload Page: Designed with a visually appealing UI and integrated with the app's theme.
+// Drag and Drop Feature: Implemented using the react-dropzone package for seamless file handling.
+// File Management: Supports uploading and managing various file formats. i.e Now allow only PDF files
+
 "use client";
 
 import { useState } from "react";

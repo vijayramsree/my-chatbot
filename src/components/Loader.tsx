@@ -1,3 +1,6 @@
+// Loader UI component designed with SVG and animated using Tailwind CSS.
+// `cn` utility function helped to conditional apply, merge multiple classes, clean code and handle combinations
+
 import { useLoading } from "@/app/providers/LoadingProvider";
 import cn from "classnames";
 

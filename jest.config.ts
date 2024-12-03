@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 import type { Config } from 'jest'
 import nextJest from 'next/jest.js'
  
@@ -14,7 +15,30 @@ const config: Config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  // Coverage configurations
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,tsx}',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+    '!**/.next/**',
+    '!**/coverage/**',
+    '!src/app/layout.tsx',
+    '!src/app/page.tsx',
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70
+    }
+  },
+  coverageReporters: [
+    'text',
+    'lcov',
+    'json',
+    'html'
+  ]
 }
  
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 export default createJestConfig(config)

@@ -38,7 +38,6 @@ jest.mock("@/app/providers/LoadingProvider", () => ({
         </Theme>
       );
   
-      // Open the dropdown
       const trigger = screen.getByText("gpt-3.5-turbo");
       fireEvent.click(trigger);
   

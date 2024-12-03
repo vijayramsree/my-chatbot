@@ -1,3 +1,5 @@
+// Home page is configured to automatically redirect to the upload path, serving as the app's entry point.
+
 "use client";
 
 import { useRouter } from "next/navigation";

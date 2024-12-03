@@ -1,3 +1,7 @@
+// UI Component for Temprature Slider
+// Redix UI Slider component used for range slider
+// UseLoading Value from context provider
+
 import { Slider, Flex } from '@radix-ui/themes';
 import { useLoading } from '@/app/providers/LoadingProvider';
 

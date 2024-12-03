@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.0.5",
+    "@cyber2024/pdf-parse-fixed": "^1.2.5",
     "@radix-ui/themes": "^3.1.6",
     "@types/node": "^20.17.9",
     "@types/react": "^18.3.12",
@@ -20,6 +22,7 @@
     "classnames": "^2.5.1",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
+    "llamaindex": "^0.8.26",
     "next": "^15.0.3",
     "postcss": "^8",
     "react": "^18.3.1",

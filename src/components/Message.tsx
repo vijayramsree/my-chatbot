@@ -1,3 +1,6 @@
+// UI component for displaying messages with distinct styling based on the role (Assistant or User)
+// `cn` utility function helped to conditional apply, merge multiple classes, clean code and handle combinations
+
 import { Message as AIMessage } from "ai";
 import cn from "classnames";
 
