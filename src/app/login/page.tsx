@@ -27,7 +27,6 @@ export default function Login() {
       });
 
       const data = await res.json();
-      setIsLoading(false);
       
       if (res.ok) {
         localStorage.setItem('user', data.user);
@@ -39,6 +38,7 @@ export default function Login() {
     } catch {
       setError('An error occurred during login');
     }
+    setIsLoading(false);
   };
 
   return (

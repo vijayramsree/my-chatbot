@@ -49,6 +49,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Application Screenshots
 
+### Login Page
+![Login Page](./screenshots/login.png "Login Page")
+
 ### Upload Page
 ![Upload Page](./screenshots/upload.png "Upload Page")
 
