@@ -9,6 +9,8 @@ This app allows you to upload your PDF file and engage in an interactive convers
  1. Adjust the temperature setting during the conversation to fine-tune the bot's responses for more accurate outputs.
  1. Authentication for login is implemented using JSON Web Tokens (JWT).
 
+---
+
 ### Core Stack:
 | Major Stack   | Version                                                                                                    |
 |:---------------------|:-----------------------------------------------------------------------------------------------------------------|
@@ -22,7 +24,7 @@ This app allows you to upload your PDF file and engage in an interactive convers
 | Jest          | 29.7.0 |
 
 
-
+---
 
 ### Packages Detail:
 | Incorporated 3rd party packages    | Use of Third-Party Packages                                                                                                    |
@@ -34,7 +36,7 @@ This app allows you to upload your PDF file and engage in an interactive convers
 | react-icons          | Utilized React Icons to incorporate a wide range of icons throughout our app.|
 | Classnames           | `cn` utility function (often part of a utility library like classnames or a custom implementation) to handle conditional class application, merge multiple classes, and clean up the code in our app. |
 
-
+---
 
 ### Way to run locally
 
@@ -52,6 +54,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 _username_: `admin`\
 _password_: `nmtest`
 
+---
+
 ### Unit Testing
 Unit testing is implemented using the Jest testing library. The testing effort achieved over 75% code coverage across the entire application, ensuring the reliability of core functionality. Additionally, 100% test coverage was achieved for all UI components, thoroughly verifying their behavior and interactions.
 
@@ -61,6 +65,12 @@ Unit testing is implemented using the Jest testing library. The testing effort a
 #### Test Coverage
 ![Test Coverage](./screenshots/test-coverage.png "Test Coverage")
 
+---
+
+### CI/CD Pipeline:
+A GitHub Actions workflow was created to automate the execution of unit tests and track code coverage. This workflow is triggered every time code is merged into the main branch, ensuring continuous validation of the application's functionality and maintaining high test coverage standards.
+
+---
 
 ### Application Screenshots
 
