@@ -9,6 +9,7 @@ import { LoadingProvider } from "./providers/LoadingProvider";
 import cn from "classnames";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import { Header } from "@/components/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,7 +40,10 @@ export default function RootLayout({
          <Theme className="h-full w-full">
             <LoadingProvider>
               <div className="h-full max-h-screen flex flex-col p-8">
-                <div className="flex-grow overflow-y-auto">{children}</div>
+                <div className="flex-grow overflow-y-auto">
+                  <Header />
+                  {children}
+                  </div>
               </div>
             </LoadingProvider>
           </Theme>

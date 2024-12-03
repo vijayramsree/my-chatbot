@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import ChatPage from "../page";
 import { useChat } from "ai/react";
 import { useLoading } from "@/app/providers/LoadingProvider";

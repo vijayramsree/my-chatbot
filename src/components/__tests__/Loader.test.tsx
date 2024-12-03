@@ -80,14 +80,12 @@ jest.mock('@/app/providers/LoadingProvider', () => ({
     it('maintains correct styling classes when loading state changes', () => {
       const { rerender } = render(<Loader />);
       
-      // Initial state: not loading
       (useLoading as jest.Mock).mockReturnValue({ isLoading: false });
       rerender(<Loader />);
       
       let loaderContainer = screen.getByRole('status');
       expect(loaderContainer).toHaveClass('hidden');
       
-      // Change to loading state
       (useLoading as jest.Mock).mockReturnValue({ isLoading: true });
       rerender(<Loader />);
       

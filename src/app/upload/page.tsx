@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // Upload Page: Designed with a visually appealing UI and integrated with the app's theme.
 // Drag and Drop Feature: Implemented using the react-dropzone package for seamless file handling.
 // File Management: Supports uploading and managing various file formats. i.e Now allow only PDF files
@@ -44,14 +45,14 @@ export default function UploadPage() {
       }
 
       window.location.href = `/chat/`;
-    } catch (err) {
+    } catch {
       setError("Upload failed");
       setIsLoading(false);
     }
   };
 
   return (
-    <main className="flex h-full flex-col items-center justify-between p-6 sm:p-12 md:p-24">
+    <main className="flex h-[90%] flex-col items-center justify-between p-6 sm:p-12 md:p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
         <div className="m-auto relative">
             <Loader />

@@ -41,7 +41,7 @@ export default function ChatPage() {
   }, [messages]);
 
   return (
-    <main className="h-full overflow-hidden">
+    <main className="h-[90%] overflow-hidden">
       <div className="h-full flex-col rounded-lg shadow-lg flex bg-gray-900 bg-opacity-10 ">
         <div className="grid grid-flow-row-dense grid-cols-12 gap-4 h-36 md:h-14 lg:h-14 items-center justify-center ">
             <div className="col-span-12 sm:col-span-2 pl-4 pt-1">
