@@ -7,6 +7,7 @@ This app allows you to upload your PDF file and engage in an interactive convers
  1. Initiate a conversation with the bot to explore and discuss the contents of the uploaded PDF, with the bot answering questions or providing insights based on the document's information (ToDO).
  1. Switch between different models during the conversation for varied responses and capabilities.
  1. Adjust the temperature setting during the conversation to fine-tune the bot's responses for more accurate outputs.
+ 1. Authentication for login is implemented using JSON Web Tokens (JWT).
 
 ### Core Stack:
 | Major Stack   | Version                                                                                                    |
@@ -47,20 +48,34 @@ Check Coverage : npm run test:coverage
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
 
+#### Login with this credetials
+_username_: `admin`\
+_password_: `nmtest`
+
+### Unit Testing
+Unit testing is implemented using the Jest testing library. The testing effort achieved over 75% code coverage across the entire application, ensuring the reliability of core functionality. Additionally, 100% test coverage was achieved for all UI components, thoroughly verifying their behavior and interactions.
+
+#### Tests:
+![Unit Test](./screenshots/unit-test.png "Unit Test")
+
+#### Test Coverage
+![Test Coverage](./screenshots/test-coverage.png "Test Coverage")
+
+
 ### Application Screenshots
 
-### Login Page
+#### Login Page
 ![Login Page](./screenshots/login.png "Login Page")
 
-### Upload Page
+#### Upload Page
 ![Upload Page](./screenshots/upload.png "Upload Page")
 
-### Upload Page with file selected
+#### Upload Page with file selected
 ![Upload Page with File](./screenshots/upload-file.png "Upload Page with file selected")
 
-### Loading
+#### Loading
 ![Loading](./screenshots/loading.png "Loading")
 
-### Chat Interface
+#### Chat Interface
 ![Chat Interface](./screenshots/chatWindow.png "Chat Interface")
 ![Chat Interface with Model Selector](./screenshots/chatWindow-model-selector.png "Chat Interface with Model Selector")
