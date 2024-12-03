@@ -45,7 +45,7 @@ Run Test : npm run test
 Check Coverage : npm run test:coverage
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
 
 ### Application Screenshots
 
