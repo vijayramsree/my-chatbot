@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
     config.infrastructureLogging = { level: 'none' };
     return config;
   },
+  experimental: {
+    serverComponentsExternalPackages: ["llamaindex"],
+  },
   turbo: {
     loaders: {
       '.pdf': ['file-loader'],

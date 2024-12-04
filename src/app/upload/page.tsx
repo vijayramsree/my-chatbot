@@ -15,6 +15,8 @@ import { useDropzone } from 'react-dropzone';
 import { Button, Callout, Heading, Text } from "@radix-ui/themes";
 import cn from "classnames";
 
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
 export default function UploadPage() {
   const { setIsLoading } = useLoading();
   const [error, setError] = useState<string>(undefined);
@@ -23,6 +25,11 @@ export default function UploadPage() {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
         const file = acceptedFiles[0]
+        if (file.size > MAX_FILE_SIZE) {
+          setError("File size must be less than 5MB");
+          setFile(undefined);
+          return;
+        }
         setFile(file);
     },
     accept: {
