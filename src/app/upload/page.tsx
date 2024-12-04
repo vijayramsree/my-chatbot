@@ -24,17 +24,21 @@ export default function UploadPage() {
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
-        const file = acceptedFiles[0]
-        if (file.size > MAX_FILE_SIZE) {
-          setError("File size must be less than 5MB");
-          setFile(undefined);
-          return;
-        }
-        setFile(file);
+      const file = acceptedFiles[0];
+      if (file.size > MAX_FILE_SIZE) {
+        setError("File size exceeds the limit; it must not be larger than 5MB.");
+        setFile(undefined);
+        return;
+      }
+      setFile(file);
     },
     accept: {
-        "application/pdf": [],
-      },
+      "application/pdf": [],
+    },
+    multiple: undefined,
+    onDragEnter: undefined,
+    onDragOver: undefined,
+    onDragLeave: undefined
   });
 
   const handleUpload = async () => {

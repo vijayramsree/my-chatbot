@@ -6,18 +6,32 @@ jest.mock('@/app/providers/LoadingProvider', () => ({
   useLoading: jest.fn()
 }));
 
+interface SliderProps {
+  value: number[];
+  onValueChange: (value: number[]) => void;
+  'data-testid'?: string;
+}
+
+interface FlexProps {
+  children: React.ReactNode;
+}
+
+jest.mock('@/app/providers/LoadingProvider', () => ({
+  useLoading: jest.fn()
+}));
+
 jest.mock('@radix-ui/themes', () => ({
-  Slider: ({ value, onValueChange }: any) => (
+  Slider: ({ value, onValueChange, 'data-testid': testId }: SliderProps) => (
     <input 
       type="range"
-      data-testid="temperature-slider"
+      data-testid={testId || "temperature-slider"}
       value={value[0]}
       onChange={(e) => onValueChange([parseInt(e.target.value)])}
       min={0}
       max={100}
     />
   ),
-  Flex: ({ children }: any) => <div>{children}</div>
+  Flex: ({ children }: FlexProps) => <div>{children}</div>
 }));
 
 describe('TempSlider', () => {
