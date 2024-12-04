@@ -14,23 +14,24 @@ export async function POST(req: Request) {
 
         const latestMessage = messages[messages.length - 1];
 
-        // Dynamic import for LlamaIndex
         const { MetadataMode } = await import('llamaindex');
 
         const index = await createOrReadVectorStoreIndex();
 
         let systemPrompt = 'You are a helpful AI Assistant';
 
-        const retriever = index.asRetriever({
-          similarityTopK: 1
-        });
+        if (index) {
+          const retriever = index.asRetriever({
+              similarityTopK: 1
+          });
 
-        const [matchingNodes] = await retriever.retrieve(latestMessage.content);
+          const matchingNodes = await retriever.retrieve(latestMessage.content);
 
-        if (matchingNodes.score > 0.7) {
-            const knowledge = matchingNodes.node.getContent(MetadataMode.NONE);
-            systemPrompt = `You are a helpful AI Assistant. Your knowledge is enriched by this document ${knowledge}. When possible explain the reasoning for your response based on this knowledge`;
-        }
+          if (matchingNodes.length > 0 && matchingNodes[0].score > 0.7) {
+              const knowledge = matchingNodes[0].node.getContent(MetadataMode.NONE);
+              systemPrompt = `You are a helpful AI Assistant. Your knowledge is enriched by this document ${knowledge}. When possible explain the reasoning for your response based on this knowledge`;
+          }
+      }
 
         const result = streamText({
             model: openai(selectedModel),

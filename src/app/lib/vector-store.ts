@@ -6,12 +6,15 @@ export async function createOrReadVectorStoreIndex(
     const { Document, VectorStoreIndex, serviceContextFromDefaults, storageContextFromDefaults } 
         = await import("llamaindex");
 
-        const storageDir = './storage';
-    try {
-        await fs.rm(storageDir, { recursive: true, force: true });
-        await fs.mkdir(storageDir);
-    } catch (error) {
-        console.error('Storage cleanup error:', error);
+    const storageDir = './storage';
+
+    if (pdfText) {
+        try {
+            await fs.rm(storageDir, { recursive: true, force: true });
+            await fs.mkdir(storageDir);
+        } catch (error) {
+            console.error('Storage cleanup error:', error);
+        }
     }
 
     const document = new Document({ text: pdfText });
