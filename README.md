@@ -30,6 +30,8 @@ This app allows you to upload your PDF file and engage in an interactive convers
 | ai-sdk/openai        | The OpenAI provider on Vercel allows you to create a function that invokes a language model.                      |
 | @radix-ui            | Integrated Radix UI components to enhance the user interface like `Theme`, `TextField`, `Flex`, `Select` and `Slide` components in our app |
 | AI SDK               | AI SDK is a typescript toolkit, used `UseChat` hook to create a conversational user interface for chatbot app and `streamText` helps to persistent chat history storage. |
+| LlamaIndex.TS        | The llamaIndex package facilitates creating a vector index with a data store and index store in JSON format using built-in functions like `VectorStoreIndex`, `serviceContextFromDefaults`, and `storageContextFromDefaults`.  |
+| @cyber2024/pdf-parse-fixed | The PDF parsing library enables understanding and extracting text content from PDF files to generate a JSON data store, structured according to the index created by llamaIndex. |
 | react-dropzone       | React Dropzone package to enable a seamless drag-and-drop file upload feature in our app.|
 | react-icons          | Utilized React Icons to incorporate a wide range of icons throughout our app.|
 | Classnames           | `cn` utility function (often part of a utility library like classnames or a custom implementation) to handle conditional class application, merge multiple classes, and clean up the code in our app. |
