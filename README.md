@@ -65,7 +65,7 @@ Unit testing is implemented using the Jest testing library. The testing effort a
 
 ### Demo Video
 
-#### App Intro
+#### App Overview
 https://github.com/user-attachments/assets/9756bf6f-cc04-4001-a662-d0f5a9782d36
 
 #### App Demo
