@@ -64,8 +64,8 @@ Unit testing is implemented using the Jest testing library. The testing effort a
 ![Test Coverage](./screenshots/test-coverage.png "Test Coverage")
 
 ### Demo
-![Demo Intro](./screenshots/Demo%20Intro.mov)
-![Demo Intro](./screenshots/Demo.mov)
+![Demo Intro](./screenshots/Demo%20Intro.mp4)
+![Demo](./screenshots/Demo.mp4)
 
 
 ### Application Screenshots
