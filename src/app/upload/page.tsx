@@ -30,6 +30,7 @@ export default function UploadPage() {
         setFile(undefined);
         return;
       }
+      setError(undefined)
       setFile(file);
     },
     accept: {
